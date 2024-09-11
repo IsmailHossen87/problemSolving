@@ -13,8 +13,10 @@ function sendNotification(email) {
     if (email.indexOf("@") === -1) {
         return "Invalid Email"
     }
-    const [username, domain] = email.split("@")
-    return `${username}sent you an email from ${domain}`
+    const mailArray = email.split("@")
+    const username = mailArray[0];
+    const domain = mailArray [1];
+    return `${username} sent you an email from ${domain}`
 }
 
 
@@ -59,7 +61,7 @@ function  waitingTime(waitingTimes  , serialNumber) {
         totalTime += waitingTimes[i];
     }
     const averageTime = Math.round (totalTime / waitingTimes.length)
-    const newSirial = serialNumber - waitingTimes.length -1;
-    const waitingTime = averageTime * newSirial;
+    const newSerial = serialNumber - waitingTimes.length -1;
+    const waitingTime = averageTime * newSerial;
     return waitingTime;
 }
